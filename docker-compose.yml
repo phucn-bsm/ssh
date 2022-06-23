@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  server:
+    build:
+      context: .
+    image: phucbsm-ssh
+    container_name: phucbsm-ssh-app
+    restart: unless-stopped
+    volumes:
+      - .:/var/ssh:cached
+    ports:
+      - ${SSH_PORT:-22}:22
